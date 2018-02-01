@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         ImageView counter = (ImageView) view;
         if (counter.getDrawable() == null && gameIsActive){
             stepCount++;
-            System.out.println("step " + stepCount);
             counter.setTranslationY(-1000f);
             if (activePlayer == 0){
                 counter.setImageResource(R.drawable.red);
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
-        System.out.println("pay again");
+        stepCount = 0;
         gameIsActive = true;
         GridLayout gridLayout = findViewById(R.id.gridLayout);
         for(int i = 0; i < gridLayout.getChildCount(); i++){
