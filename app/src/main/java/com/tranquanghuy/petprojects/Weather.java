@@ -108,7 +108,8 @@ public class Weather extends AppCompatActivity {
 
 
     public void findWeather(View view){
-        Log.d(TAG, "city: " + etCity.getText().toString());
+        Log.d(TAG, "city: " +
+                etCity.getText().toString());
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(etCity.getWindowToken(), 0);
         try {

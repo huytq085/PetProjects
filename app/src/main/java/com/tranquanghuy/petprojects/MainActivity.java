@@ -10,6 +10,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnEggTimer;
     private Button btnWeather;
     private Button btnTTT;
+    private Button btnGGMaps;
+    private Button btnNotes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         btnEggTimer = findViewById(R.id.btnEggTimer);
         btnWeather = findViewById(R.id.btnWeather);
         btnTTT = findViewById(R.id.btnTTT);
+        btnGGMaps = findViewById(R.id.btnGGMaps);
+        btnNotes = findViewById(R.id.btnNotes);
 
     }
     public void linkToProject(){
@@ -43,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), TicTacToe.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+        btnGGMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+        btnNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), AppNotes.class);
                 startActivityForResult(myIntent, 0);
             }
         });
