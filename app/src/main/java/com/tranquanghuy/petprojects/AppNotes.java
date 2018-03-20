@@ -1,6 +1,8 @@
 package com.tranquanghuy.petprojects;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -51,6 +53,28 @@ public class AppNotes extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), NotesEditorActivity.class);
                 intent.putExtra("noteId", i);
                 startActivity(intent);
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final int itemToDelete = i;
+                new AlertDialog.Builder(AppNotes.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you sure?")
+                        .setMessage("Do you want to delete this note?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                notes.remove(itemToDelete);
+                                arrayAdapter.notifyDataSetChanged();
+
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return false;
             }
         });
     }
