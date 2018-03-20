@@ -12,6 +12,5 @@
         android:layout_height="match_parent"
         android:ems="10"
         android:gravity="top|left"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 </RelativeLayout>
